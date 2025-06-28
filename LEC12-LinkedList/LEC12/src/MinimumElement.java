@@ -31,10 +31,10 @@ class Node{
     }
 }
 
-class MyList{
+class SList{
     Node head, tail;
     
-    public MyList(){
+    public SList(){
         head=tail=null;
     }
     
@@ -75,7 +75,7 @@ class MyList{
 public class MinimumElement {
     public static void main(String[] args) {
         Scanner inp=new Scanner(System.in);
-        MyList list=new MyList();
+        SList list=new SList();
         
         while(true){
             int x=inp.nextInt();
