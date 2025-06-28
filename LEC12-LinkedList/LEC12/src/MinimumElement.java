@@ -16,62 +16,57 @@ output
 2
 */
 
-
-class Node {
+class Node{
     int info;
     Node next;
     
-    public Node() {
-        this.info = 0;
-        this.next = null;
+    public Node(){
+        this.info=0;
+        this.next=null;
     }
     
-    public Node(int info, Node next) {
-        this.info = info;
-        this.next = next;
+    public Node(int info, Node next){
+        this.info=info;
+        this.next=next;
     }
 }
 
-class MyList {
+class MyList{
     Node head, tail;
-    int size;
     
-    public MyList() {
-        head = tail = null;
-        size = 0;
+    public MyList(){
+        head=tail=null;
     }
     
-    public boolean isEmpty() {
-        return head == null;
+    public boolean isEmpty(){
+        return head==null;
     }
     
-    public void clear() {
-        head = tail = null;
-        size = 0;
+    public void clear(){
+        head=tail=null;
     }
     
-    public void addLast(int x) {
-        Node p = new Node(x, null);
-        if (isEmpty()) {
-            head = tail = p;
-        } else {
-            tail.next = p;
-            tail = p;
+    public void addLast(int x){
+        Node p=new Node(x, null);
+        if(isEmpty()){
+            head=tail=p;
+        } else{
+            tail.next=p;
+            tail=p;
         }
-        size++;
     }
     
-    public int minNode() {
-        if (isEmpty()) {
-            return Integer.MAX_VALUE; // Trường hợp danh sách rỗng
+    public int minNode(){
+        if(isEmpty()){
+            return Integer.MAX_VALUE; // TH ds null
         }
-        int min = head.info;
-        Node curr = head;
-        while (curr != null) {
-            if (curr.info < min) {
-                min = curr.info;
+        int min=head.info;
+        Node curr=head;
+        while(curr != null){
+            if (curr.info < min){
+                min=curr.info;
             }
-            curr = curr.next;
+            curr=curr.next;
         }
         return min;
     }
@@ -79,21 +74,17 @@ class MyList {
 
 public class MinimumElement {
     public static void main(String[] args) {
-        Scanner inp = new Scanner(System.in);
-        MyList list = new MyList();
+        Scanner inp=new Scanner(System.in);
+        MyList list=new MyList();
         
-        // Nhập danh sách cho đến khi gặp số 0
-        while (true) {
-            int x = inp.nextInt();
-            if (x == 0) {
-                break; // Thoát khi gặp số 0
+        while(true){
+            int x=inp.nextInt();
+            if(x == 0){
+                break;
             }
             list.addLast(x);
         }
         
-        // In ra số nhỏ nhất
-        System.out.println(list.minNode());
-        
-        inp.close();
+        System.out.println(list.minNode());        
     }
 }
